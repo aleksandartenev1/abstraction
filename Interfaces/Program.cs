@@ -40,14 +40,19 @@ namespace Interfaces
         {
             List<IPhysicalProductInfo> cart = AddData();
             List<ICustomerInfo> customerInfo = new List<ICustomerInfo>();
-            //List<IDigitalProductInfo> digitalCart =
+            List<IDigitalProductInfo> digitalCart = new List<IDigitalProductInfo>();
 
             Customer customer = AddCustomer();
             customerInfo.Add(customer);
 
-            foreach (IPhysicalProductInfo item in cart)
+            foreach (ICustomerInfo var in customerInfo)
             {
-                item.ItemShippment(customer);
+                Console.WriteLine($"{var.FirstName} {var.LastName} {var.PhoneNumber} {var.EmailAddress}");
+            }
+
+            foreach (IPhysicalProductInfo var in cart)
+            {
+                Console.WriteLine($"Product Type: {var.ProductType}, Product Name: {var.ProductName}, Order Status: {var.OrderCompletion}");
             }
         }
     }

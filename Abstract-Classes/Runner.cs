@@ -6,20 +6,19 @@ using System.Threading.Tasks;
 
 namespace Abstract_Classes
 {
-    public abstract class Plane : IComparable<Plane>
+    public abstract class Runner : IComparable<Runner>
     {
         public abstract string Type { get; }
-        public abstract int Speed { get; }
+        public abstract double Speed { get; }
 
-        public int CompareTo(Plane other)
+        public int CompareTo(Runner other)
         {
             return this.Speed.CompareTo(other.Speed);
         }
 
         public override string ToString()
         {
-            string theString = "This is: " + this.Type;
-            return theString;
+            return "Type: " + this.Type;
         }
     }
 }
